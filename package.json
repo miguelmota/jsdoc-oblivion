@@ -2,7 +2,7 @@
   "name": "jsdoc-oblivion",
   "version": "0.0.1",
   "description": "A gray and blue theme for JSDoc.",
-  "main": "index.js",
+  "main": "template/publish.js",
   "scripts": {
     "test": "npm test"
   },
