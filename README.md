@@ -85,6 +85,6 @@ Generate:
 grunt jsdoc
 ```
 
-## License
+# License
 
 Released under the MIT License.
