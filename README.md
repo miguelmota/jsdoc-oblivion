@@ -1,10 +1,10 @@
 # JSDoc Oblivion Template
 
-A gray and blue [JSDoc](http://usejsdoc.org/) template theme (based off [docstrap](https://github.com/terryweiss/docstrap))
+A gray and blue [JSDoc](http://usejsdoc.org/) template theme (based off [docstrap](https://github.com/terryweiss/docstrap)).
 
 # Demo
 
-[http://jsdoc-oblivion.moogs.io](http://jsdoc-oblivion.moogs.io)
+**[http://jsdoc-oblivion.moogs.io](http://jsdoc-oblivion.moogs.io)**
 
 # Install
 
@@ -15,6 +15,8 @@ npm install jsdoc-oblivion
 ```
 
 # Usage
+
+[Grunt](http://gruntjs.com/) dependencies:
 
 ```bash
 npm install jsdoc --save-dev
