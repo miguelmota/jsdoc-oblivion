@@ -15,7 +15,7 @@
     },
     "systemName"      : "Oblivion",
     "footer"          : "",
-    "copyright"       : "Copyright © 2014",
+    "copyright"       : "Copyright © 2014 <a href='http://moogs.io' target='_blank'>Moogs, LLC.</a>",
     "navType"         : "vertical",
     "theme"           : "oblivion",
     "linenums"        : true,

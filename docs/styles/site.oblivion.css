@@ -212,7 +212,7 @@ textarea {
 body {
   margin: 0;
   font-family: "open-sans-1","open-sans-2","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: #444;
   background: #f0f0f0 url(../img/old-wall.png) repeat 0 0;
@@ -552,7 +552,7 @@ a:focus {
   clear: both;
 }
 p {
-  margin: 0 0 10px;
+  margin: 20px 0;
 }
 .lead {
   margin-bottom: 20px;
@@ -821,7 +821,7 @@ code,
 pre {
   padding: 0 3px 2px;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-  font-size: 12px;
+  font-size: 16px;
   color: #999999;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1728,7 +1728,7 @@ table {
 }
 .table th,
 .table td {
-  padding: 8px;
+  padding: 12px;
   line-height: 20px;
   text-align: left;
   vertical-align: top;
@@ -2442,16 +2442,9 @@ table th[class*="span"],
   float: left;
   min-width: 160px;
   padding: 5px 0;
-  margin: 2px 0 0;
+  margin: 0;
   list-style: none;
   background-color: #ffffff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -3496,6 +3489,9 @@ input[type="submit"].btn.btn-mini {
   color: #ffffff;
   background-color: #08c;
 }
+.nav-stacked {
+  margin: 0;
+}
 .nav-stacked > li {
   float: none;
 }
@@ -3533,10 +3529,22 @@ input[type="submit"].btn.btn-mini {
   z-index: 2;
 }
 .nav-pills.nav-stacked > li > a {
-  margin-bottom: 3px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 15px 10px;
+  border-bottom: 1px solid #bbb;
+  background: #ddd;
+  background: rgba(255,255,255,.4);
+  color: #444;
+  -webkit-transition: all .2s ease-out;
+  -moz-transition: all .2s ease-out;
+  -ms-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  transition: all .2s ease-out;
 }
 .nav-pills.nav-stacked > li:last-child > a {
-  margin-bottom: 1px;
+
 }
 .nav-tabs .dropdown-menu {
   -webkit-border-radius: 0 0 6px 6px;
@@ -3758,6 +3766,7 @@ input[type="submit"].btn.btn-mini {
   font-weight: bold;
   color: #ffffff;
   text-shadow: 0 1px 0 #080808;
+  background: #000;
 }
 .navbar .brand:hover,
 .navbar .brand:focus {
@@ -5277,17 +5286,20 @@ body {
 h1 {
   margin-top: 50px;
   font-size: 32px;
+  font-weight: 500;
+  border-bottom: 1px solid #ccc;
+  padding: 0 0 10px 0;
 }
 h2,
 h3 {
-  font-size: 26px;
+  font-size: 28px;
 }
 h4 {
-  font-size: 14px;
+  font-size: 24px;
 }
 h5,
 h6 {
-  font-size: 11px;
+  font-size: 20px;
 }
 blockquote {
   padding: 10px 15px;
@@ -5447,8 +5459,8 @@ div.subnav-fixed {
   color: #000000;
 }
 .nav-pills > li > a:hover {
-  background-color: #4a6b7c;
-  color: #ffffff;
+  background-color: #fff;
+  background-color: rgba(255,255,255,.6);
 }
 .nav-pills > .disabled > a,
 .nav-pills > .disabled > a:hover {
@@ -5800,7 +5812,11 @@ a.thumbnail:hover {
   color: #ffffff;
 }
 #main {
-  margin-top: 62px;
+  margin-top: 80px;
+}
+/* Theme Style  */
+.container-fluid {
+  padding: 0;
 }
 .navbar-fixed-top .navbar-inner {
   padding-left: 20px;
@@ -5833,15 +5849,63 @@ a.thumbnail:hover {
 }
 #toc {
   position: fixed;
-  top: 62px;
-  width: 29%;
-  max-height: 82%;
+  top: 50px; /* Top navbar height */
+  height: 100%;
+  width: 23.404255319148934%;
   overflow: auto;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid #eee;
-  padding: 5px;
+  padding: 0;
+  background: #ededed;
+  background: rgba(0,0,0,.2);
+}
+@media (max-width: 640px) {
+  #toc {
+    position: relative;
+    width: 100%;
+    margin-top: 0 !important;
+    top: 0 !important;
+  }
+  .row-fluid .span3 {
+    width: 100% !important;
+    float: none !important;
+  }
+  .row-fluid .span9 {
+    width: 100% !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+  }
+  .row-fluid #main {
+  }
+  .brand {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    position: relative !important;
+    z-index: 100000 !important;
+    float: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .nav {
+    width: 100% !important;
+    float: none !important;
+  }
+  .nav li {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+  }
+  .nav > li > a {
+    border-bottom: 1px solid #444;
+  }
+  .navbar-inner {
+    padding: 0 !important;
+  }
+  .navbar-fixed-top {
+    position: relative;
+  }
 }
 #toc .toc-active {
   background-color: #2d3237;
@@ -5854,50 +5918,52 @@ a.thumbnail:hover {
 #toc .toc-active a:hover,
 #toc .toc-active a:active,
 #toc .toc-active a:visited {
-  background-color: #08c;
+  background-color: #4a6b7c;
   color: #ffffff;
+  cursor: default;
 }
 .toc-h1 {
-  margin-left: 2px;
-  margin-right: 2px;
+
 }
 .toc-h2 {
-  margin-left: 7px;
-  margin-right: 7px;
+  margin-left: 10px;
 }
 .toc-h3 {
-  margin-left: 14px;
-  margin-right: 7px;
+  margin-left: 20px;
 }
 .toc-h4 {
-  margin-left: 21px;
-  margin-right: 7px;
+  margin-left: 30px;
 }
 .copyright {
   font-size: 90%;
   text-align: center;
-  color: #444;
+  color: #ccc;
   width: 100%;
   display: block;
 }
 .jsdoc-message {
   font-size: 90%;
   text-align: center;
-  color: #444;
+  color: #ccc;
   width: 100%;
   display: block;
 }
 .page-title {
-  font-size: 220%;
+  font-size: 38px;
   color: #2d3237;
   font-weight: 700;
   padding-top: 10px;
   padding-bottom: 7px;
   display: block;
+  word-break: break-word;
 }
 footer {
-  border-top: 1px solid #444;
-  padding: 15px;
+  border-top: 1px solid #ccc;
+  padding: 20px 0;
+  margin-top: 60px;
+}
+footer a {
+  color: #aaa;
 }
 code {
   background-color: none;
@@ -5955,4 +6021,50 @@ code {
 
 .sunlight-menu img {
   display: none;
+}
+.sunlight-code-container {
+  overflow: hidden;
+}
+article h4.name {
+  font-size: 34px;
+  font-weight: bold;
+  margin: 0 0 25px 0;
+  line-height: 1.2;
+  border-bottom: 1px solid #ccc;
+  padding: 0 0 10px 0;
+  word-break: break-word;
+}
+article .name .signature {
+  font-weight: normal;
+}
+article .name .type-signature {
+  font-weight: normal;
+}
+article .description {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+article dd h5 {
+  margin-top: 20px;
+}
+.sunlight-line-number-margin,
+.sunlight-javascript {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.sunlight-container {
+  margin: 0 0 40px 0 !important;
+}
+.sunlight-code-container textarea[readonly] {
+  cursor: default;
+  background-color: #fff;
+  color: #000 !important;
+}
+.row-fluid .span9 {
+  padding-right: 25px;
+}
+.params-table-container {
+  overflow: scroll;
 }
