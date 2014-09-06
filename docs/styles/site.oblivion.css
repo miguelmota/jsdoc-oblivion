@@ -5897,7 +5897,7 @@ a.thumbnail:hover {
     float: none !important;
     width: 100% !important;
   }
-  .nav > li > a {
+  .dropdown > a {
     border-bottom: 1px solid #444 !important;
   }
   .navbar-inner {
