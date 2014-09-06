@@ -3531,7 +3531,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills.nav-stacked > li > a {
   margin: 0;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   padding: 15px 10px;
   border-bottom: 1px solid #bbb;
   background: #ddd;
@@ -5824,9 +5824,9 @@ a.thumbnail:hover {
 }
 .navbar .dropdown-menu {
   padding: 0;
-  max-height: 300px;
+  max-height: 1000px;
   overflow: auto;
-  width: 300px;
+  width: auto;
   background-color: #2d3237;
 }
 .navbar .dropdown-menu a,
@@ -5843,8 +5843,8 @@ a.thumbnail:hover {
 }
 .navbar .dropdown-menu a {
   padding: 10px 20px;
-  font-weight: 500;
-  font-size: 115%;
+  font-weight: 300;
+  font-size: 16px;
   border-bottom: 1px solid #222;
 }
 #toc {
@@ -5898,13 +5898,16 @@ a.thumbnail:hover {
     width: 100% !important;
   }
   .nav > li > a {
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #444 !important;
   }
   .navbar-inner {
     padding: 0 !important;
   }
   .navbar-fixed-top {
-    position: relative;
+    position: relative !important;
+  }
+  .dropdown-menu {
+    width: 100% !important;
   }
 }
 #toc .toc-active {
