@@ -5824,7 +5824,7 @@ a.thumbnail:hover {
 }
 .navbar .dropdown-menu {
   padding: 0;
-  max-height: 1000px;
+  max-height: 300px;
   overflow: auto;
   width: auto;
   background-color: #2d3237;
