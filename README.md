@@ -85,6 +85,10 @@ Generate:
 grunt jsdoc
 ```
 
+# Source
+
+[https://github.com/miguelmota/jsdoc-oblivion](https://github.com/miguelmota/jsdoc-oblivion)
+
 # License
 
 Released under the MIT License.
