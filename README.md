@@ -14,6 +14,12 @@ Available via [npm](https://www.npmjs.org/)
 npm install jsdoc-oblivion
 ```
 
+Available via [bower](http://bower.io/)
+
+```bash
+bower install jsdoc-oblivion
+```
+
 # Usage
 
 [Grunt](http://gruntjs.com/) dependencies:
