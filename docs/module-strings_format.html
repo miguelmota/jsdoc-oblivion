@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes, width=device-width">
-  <title>Oblivion — Mixins</title>
+  <title>Oblivion — Module: strings/format</title>
   <link rel="shortcut icon" href="/favicon.ico">
 
   <!--[if lt IE 9]>
@@ -166,12 +166,12 @@
           
 
 
-	<h1 class="page-title">Mixins</h1>
+	<h1 class="page-title">Module: strings/format</h1>
 <section>
 
 <header>
     <h2>
-    
+    strings/format
     </h2>
     
 </header>
@@ -179,8 +179,201 @@
 <article>
     <div class="container-overview">
     
+        
+<dt>
+    <h4 class="name" id="module:strings/format"><span class="type-signature"></span>require("strings/format")<span class="signature">(format, args)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Format a string quickly and easily using .net style format strings
+    </div>
+    
 
     
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+<div class="params-table-container">
+  <table class="params table table-striped">
+      <thead>
+    <tr>
+      
+      <th>Name</th>
+      
+  
+      <th>Type</th>
+  
+      
+      <th>Argument</th>
+      
+  
+      
+  
+      <th class="last">Description</th>
+    </tr>
+    </thead>
+  
+    <tbody>
+    
+  
+          <tr>
+              
+                  <td class="name"><code>format</code></td>
+              
+  
+              <td class="type">
+              
+                  
+<span class="param-type">string</span>
+
+
+              
+              </td>
+  
+              
+                  <td class="attributes">
+                  
+  
+                  
+  
+                  
+                  </td>
+              
+  
+              
+  
+              <td class="description last">A string format like "Hello {0}, now take off your {1}!"</td>
+          </tr>
+  
+    
+  
+          <tr>
+              
+                  <td class="name"><code>args</code></td>
+              
+  
+              <td class="type">
+              
+                  
+<span class="param-type">?</span>
+
+
+              
+              </td>
+  
+              
+                  <td class="attributes">
+                  
+  
+                  
+  
+                  
+                      &lt;repeatable><br>
+                  
+                  </td>
+              
+  
+              
+  
+              <td class="description last">One argument per `{}` in the string, positionally replaced</td>
+          </tr>
+  
+    
+    </tbody>
+  </table>
+</div>
+
+    
+    
+    
+<dl class="details">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+  <dt>
+    Type
+  </dt>
+  <dd>
+    
+<span class="param-type">string</span>
+
+
+  </dd>
+</dl>
+
+
+        
+    
+    
+        <h5>Examples</h5>
+        
+    <pre class="sunlight-highlight-javascript">var strings = require(&quot;papyrus/strings&quot;);
+var s = strings.format(&quot;Hello {0}&quot;, &quot;Madame Vastra&quot;);
+// s = &quot;Hello Madame Vastra&quot;</pre>
+
+    <pre class="sunlight-highlight-javascript">
+&lt;span&gt;
+     &lt;%= strings.format(&quot;Hello {0}&quot;, &quot;Madame Vastra&quot;) %&gt;
+&lt;/span&gt;</pre>
+
+
+    
+</dd>
+
+    
+
+    
+        
+            <div class="description">String helper methods</div>
         
 
         
@@ -225,40 +418,6 @@
 
     
 
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="base.html">base</a></dt>
-            <dd></dd>
-        
-            <dt><a href="base_chains.html">base/chains</a></dt>
-            <dd></dd>
-        
-            <dt><a href="documents_model.html">documents/model</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-documents_probe.queryOperators.html">queryOperators</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-documents_probe.updateOperators.html">updateOperators</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-ink_collector-ACollector.html">ACollector</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-ink_collector-CollectorBase.html">CollectorBase</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-ink_collector-OCollector.html">OCollector</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-mixins_signalable-Signal.html">Signal</a></dt>
-            <dd></dd>
-        
-            <dt><a href="utils_logger.Logger.html">Logger</a></dt>
-            <dd></dd>
-        </dl>
     
 
     

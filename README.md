@@ -4,7 +4,7 @@ A gray and blue [JSDoc](http://usejsdoc.org/) template theme (based off [docstra
 
 # Demo
 
-**[http://jsdoc-oblivion.moogs.io](http://jsdoc-oblivion.moogs.io)**
+**[https://lab.miguelmota.com/jsdoc-oblivion](https://lab.miguelmota.com/jsdoc-oblivion)**
 
 # Install
 

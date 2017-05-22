@@ -728,7 +728,7 @@ dd {
 }
 dt > span {
   display: block;
-  margin-top: 100px;
+  padding-top: 100px;
 }
 .dl-horizontal {
   *zoom: 1;

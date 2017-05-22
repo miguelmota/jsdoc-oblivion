@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes, width=device-width">
-  <title>Oblivion — Mixins</title>
+  <title>Oblivion — Module: mixins/signalable</title>
   <link rel="shortcut icon" href="/favicon.ico">
 
   <!--[if lt IE 9]>
@@ -166,12 +166,12 @@
           
 
 
-	<h1 class="page-title">Mixins</h1>
+	<h1 class="page-title">Module: mixins/signalable</h1>
 <section>
 
 <header>
     <h2>
-    
+    mixins/signalable
     </h2>
     
 </header>
@@ -181,6 +181,9 @@
     
 
     
+        
+            <div class="description">Add the ability to fire signals on your objects. Signals are events, but hard coded into the object
+and don't rely on strings like other events and `eventables`</div>
         
 
         
@@ -224,39 +227,22 @@
     
 
     
+        <h3 class="subsection-title">Requires</h3>
+
+        <ul>
+            <li><a href="module-base.html">module:base</a></li>
+        
+            <li>module:signals</li>
+        
+            <li>module:base/logger</li>
+        </ul>
+    
 
     
         <h3 class="subsection-title">Classes</h3>
 
         <dl>
-            <dt><a href="base.html">base</a></dt>
-            <dd></dd>
-        
-            <dt><a href="base_chains.html">base/chains</a></dt>
-            <dd></dd>
-        
-            <dt><a href="documents_model.html">documents/model</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-documents_probe.queryOperators.html">queryOperators</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-documents_probe.updateOperators.html">updateOperators</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-ink_collector-ACollector.html">ACollector</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-ink_collector-CollectorBase.html">CollectorBase</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-ink_collector-OCollector.html">OCollector</a></dt>
-            <dd></dd>
-        
             <dt><a href="module-mixins_signalable-Signal.html">Signal</a></dt>
-            <dd></dd>
-        
-            <dt><a href="utils_logger.Logger.html">Logger</a></dt>
             <dd></dd>
         </dl>
     
@@ -267,6 +253,202 @@
 
     
 
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
+<dt class="name" id=".SignalOptions">
+    <h4>SignalOptions</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+
+    
+<dl class="details">
+  
+
+  <h5 class="subsection-title">Properties:</h5>
+
+  <dl>
+
+<table class="props table table-striped">
+    <thead>
+  <tr>
+    
+    <th>Name</th>
+    
+
+    <th>Type</th>
+
+    
+    <th>Argument</th>
+    
+
+    
+
+    <th class="last">Description</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  
+
+        <tr>
+            
+                <td class="name"><code>memorize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">If Signal should keep record of previously dispatched parameters and automatically execute listener. Defaults to `false`</td>
+        </tr>
+
+  
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Default parameters passed to listener during `Signal.raise`/`Signal.fire`/`Signal.trigger` and SignalBinding.execute. (curried parameters). Defaults to `null`</td>
+        </tr>
+
+  
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">When provided the signal will be raised in the context of this object. Defaults to `this` - the signal host</td>
+        </tr>
+
+  
+  </tbody>
+</table>
+</dl>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">signals:{
+     opened: null,
+     twisted: { memorize:true },
+     applied: { memorize: false, params:[one, two] }
+ }
+
+ // Setting the context initially can be a hassle, so this also supports a function that returns a hash
+
+ signals: function(){
+     return {
+     opened: null,
+     twisted: { memorize:true },
+     applied: { memorize: false, params:[one, two] },
+     reversed: {context: someOtherRuntimeObject}
+     };
+ }</pre>
+
+
+    
+</dd>
+
+            </dl>
     
 
     

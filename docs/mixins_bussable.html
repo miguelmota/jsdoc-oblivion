@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes, width=device-width">
-  <title>Oblivion — Class: base</title>
+  <title>Oblivion — Mixin: mixins/bussable</title>
   <link rel="shortcut icon" href="/favicon.ico">
 
   <!--[if lt IE 9]>
@@ -166,18 +166,15 @@
           
 
 
-	<h1 class="page-title">Class: base</h1>
+	<h1 class="page-title">Mixin: mixins/bussable</h1>
 <section>
 
 <header>
     <h2>
-    base
+    mixins/bussable
     </h2>
     
-        <div class="class-description">The base of all classes in the system, this is one of the few pure "classes" in core the of the system. It is a
-pretty clean little class whose primary purpose is to surface the composition chains and a basis for storing
-options on mixin and subclass instances. Options are handled at the instance rather than the prototype level
-so that multiple instances don't compete for default values.</div>
+        <div class="class-description">Provides easy access to the system bus and provides some helper methods for doing so</div>
     
 </header>
 
@@ -187,22 +184,8 @@ so that multiple instances don't compete for default values.</div>
 
     
         
-<dt>
-    <h4 class="name" id="base"><span class="type-signature"></span>new base<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
+        
 <dl class="details">
   
 
@@ -233,29 +216,11 @@ so that multiple instances don't compete for default values.</div>
   
 </dl>
 
-    
-    
 
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
+        
     
     </div>
 
-    
-        <h3 class="subsection-title">Extends</h3>
-
-        <ul>
-            <li><a href="base_chains.html">base/chains</a></li>
-        </ul>
     
 
     
@@ -271,22 +236,28 @@ so that multiple instances don't compete for default values.</div>
 
         <dl>
             
-<dt class="name" id="close">
-    <h4><span class="type-signature"></span>close<span class="type-signature"></span></h4>
+<dt class="name" id="_subscriptions">
+    <h4><span class="type-signature">&lt;private> </span>_subscriptions<span class="type-signature"> :Array</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        The `close` method asks an object to shut itself down in a way that will allow it to be reopened, unlike the
-<a href="base_chains.html#end">end method</a> which will call the destroy method which should make the object unusable, but also
-devoid of all resources whereas `close` may still keep some resources open.
-
-This uses the `before` chain which means the last one defined in the first one destroyed
+        The list of subscriptions maintained by the mixin
     </div>
     
 
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Array</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -298,15 +269,6 @@ This uses the `before` chain which means the last one defined in the first one d
   
 
   
-  <dt class="inherited-from">Inherited From:</dt>
-  <dd class="inherited-from">
-    <ul class="dummy">
-      <li>
-        <a href="base_chains.html#close">base/chains#close</a>
-      </li>
-    </ul>
-  </dd>
-  
 
   
 
@@ -324,83 +286,6 @@ This uses the `before` chain which means the last one defined in the first one d
 
   
 
-  
-  <dt class="tag-see">See:</dt>
-  <dd class="tag-see">
-    <ul>
-      <li><a href="base_chains.html#open">base/chains#open</a></li>
-      </ul>
-  </dd>
-  
-
-  
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt class="name" id="open">
-    <h4><span class="type-signature"></span>open<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        If you are using the open/close paradigm for an object that can kind of go dormant on <a href="base_chains.html#close">base/chains#close</a> and can be "reopened"
-again later, here is where the "open" code will go.
-
-This used the `after` chain which means that the first one defined is the first one destroyed.
-    </div>
-    
-
-    
-
-    
-<dl class="details">
-  
-
-  
-
-  
-
-  
-  <dt class="inherited-from">Inherited From:</dt>
-  <dd class="inherited-from">
-    <ul class="dummy">
-      <li>
-        <a href="base_chains.html#open">base/chains#open</a>
-      </li>
-    </ul>
-  </dd>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  
-
-  
-
-  
-  <dt class="tag-see">See:</dt>
-  <dd class="tag-see">
-    <ul>
-      <li><a href="base_chains.html#close">base/chains#close</a></li>
-      </ul>
-  </dd>
   
 
   
@@ -419,7 +304,7 @@ This used the `after` chain which means that the first one defined is the first 
         <dl>
             
 <dt>
-    <h4 class="name" id="addDefaultOptions"><span class="type-signature"></span>addDefaultOptions<span class="signature">(options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="destroy"><span class="type-signature">&lt;private> </span>destroy<span class="signature">()</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -427,8 +312,73 @@ This used the `after` chain which means that the first one defined is the first 
     
     
     <div class="description">
-        Add a default option to a class. The default options are only set if there is not already a
-value for the option.
+        Gets rid of all subscriptions for this object.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getSubscription"><span class="type-signature"></span>getSubscription<span class="signature">(channel, topic)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Get a subscription definition
     </div>
     
 
@@ -462,13 +412,13 @@ value for the option.
   
           <tr>
               
-                  <td class="name"><code>options</code></td>
+                  <td class="name"><code>channel</code></td>
               
   
               <td class="type">
               
                   
-<span class="param-type">hash</span>
+<span class="param-type">string</span>
 
 
               
@@ -478,7 +428,30 @@ value for the option.
   
               
   
-              <td class="description last">A hash of options you want to set</td>
+              <td class="description last"></td>
+          </tr>
+  
+    
+  
+          <tr>
+              
+                  <td class="name"><code>topic</code></td>
+              
+  
+              <td class="type">
+              
+                  
+<span class="param-type">string</span>
+
+
+              
+              </td>
+  
+              
+  
+              
+  
+              <td class="description last"></td>
           </tr>
   
     
@@ -515,13 +488,6 @@ value for the option.
   
 
   
-  <dt class="tag-see">See:</dt>
-  <dd class="tag-see">
-    <ul>
-      <li>{<a href="base.html#addOptions">base#addOptions</a>}</li>
-      </ul>
-  </dd>
-  
 
   
 </dl>
@@ -536,6 +502,29 @@ value for the option.
     
     
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The subscription definition
+</div>
+
+
+
+<dl>
+  <dt>
+    Type
+  </dt>
+  <dd>
+    
+<span class="param-type">object</span>
+
+
+  </dd>
+</dl>
+
+
+        
     
     
 </dd>
@@ -543,7 +532,7 @@ value for the option.
         
             
 <dt>
-    <h4 class="name" id="addOptions"><span class="type-signature"></span>addOptions<span class="signature">(options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="once"><span class="type-signature"></span>once<span class="signature">(channel, topic, callback)</span><span class="type-signature"> &rarr; {object}</span></h4>
     
     
 </dt>
@@ -551,7 +540,7 @@ value for the option.
     
     
     <div class="description">
-        Add an option to a class. If any members of the hash already exist in `this.options`, they will be overwritten.
+        Subscribe to an event once
     </div>
     
 
@@ -585,13 +574,13 @@ value for the option.
   
           <tr>
               
-                  <td class="name"><code>options</code></td>
+                  <td class="name"><code>channel</code></td>
               
   
               <td class="type">
               
                   
-<span class="param-type">hash</span>
+<span class="param-type">string</span>
 
 
               
@@ -601,7 +590,53 @@ value for the option.
   
               
   
-              <td class="description last">A hash of options you want to set</td>
+              <td class="description last">The channel to subscribe to</td>
+          </tr>
+  
+    
+  
+          <tr>
+              
+                  <td class="name"><code>topic</code></td>
+              
+  
+              <td class="type">
+              
+                  
+<span class="param-type">string</span>
+
+
+              
+              </td>
+  
+              
+  
+              
+  
+              <td class="description last">The topic to subscribe to</td>
+          </tr>
+  
+    
+  
+          <tr>
+              
+                  <td class="name"><code>callback</code></td>
+              
+  
+              <td class="type">
+              
+                  
+<span class="param-type">callback</span>
+
+
+              
+              </td>
+  
+              
+  
+              
+  
+              <td class="description last">What to do when you get the event</td>
           </tr>
   
     
@@ -638,13 +673,6 @@ value for the option.
   
 
   
-  <dt class="tag-see">See:</dt>
-  <dd class="tag-see">
-    <ul>
-      <li>{<a href="base.html#addDefaultOptions">base#addDefaultOptions</a>}</li>
-      </ul>
-  </dd>
-  
 
   
 </dl>
@@ -659,6 +687,29 @@ value for the option.
     
     
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The subscription definition
+</div>
+
+
+
+<dl>
+  <dt>
+    Type
+  </dt>
+  <dd>
+    
+<span class="param-type">object</span>
+
+
+  </dd>
+</dl>
+
+
+        
     
     
 </dd>
@@ -666,7 +717,7 @@ value for the option.
         
             
 <dt>
-    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="publish"><span class="type-signature"></span>publish<span class="signature">(channel, topic, <span class="optional">options</span>)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -674,9 +725,7 @@ value for the option.
     
     
     <div class="description">
-        Called when it is time to get rid of all of your instance level references and objects and events. You can
-define this method on your own classes without having to call the superclass instance. It is called by
-`instance.end()` automatically
+        Publish an event on the system bus
     </div>
     
 
@@ -684,6 +733,130 @@ define this method on your own classes without having to call the superclass ins
     
     
     
+    
+        <h5>Parameters:</h5>
+        
+<div class="params-table-container">
+  <table class="params table table-striped">
+      <thead>
+    <tr>
+      
+      <th>Name</th>
+      
+  
+      <th>Type</th>
+  
+      
+      <th>Argument</th>
+      
+  
+      
+  
+      <th class="last">Description</th>
+    </tr>
+    </thead>
+  
+    <tbody>
+    
+  
+          <tr>
+              
+                  <td class="name"><code>channel</code></td>
+              
+  
+              <td class="type">
+              
+                  
+<span class="param-type">string</span>
+
+
+              
+              </td>
+  
+              
+                  <td class="attributes">
+                  
+  
+                  
+  
+                  
+                  </td>
+              
+  
+              
+  
+              <td class="description last">The channel to publish to</td>
+          </tr>
+  
+    
+  
+          <tr>
+              
+                  <td class="name"><code>topic</code></td>
+              
+  
+              <td class="type">
+              
+                  
+<span class="param-type">string</span>
+
+
+              
+              </td>
+  
+              
+                  <td class="attributes">
+                  
+  
+                  
+  
+                  
+                  </td>
+              
+  
+              
+  
+              <td class="description last">The topic to publish to</td>
+          </tr>
+  
+    
+  
+          <tr>
+              
+                  <td class="name"><code>options</code></td>
+              
+  
+              <td class="type">
+              
+                  
+<span class="param-type">object</span>
+
+
+              
+              </td>
+  
+              
+                  <td class="attributes">
+                  
+                      &lt;optional><br>
+                  
+  
+                  
+  
+                  
+                  </td>
+              
+  
+              
+  
+              <td class="description last">What to pass to the event</td>
+          </tr>
+  
+    
+    </tbody>
+  </table>
+</div>
+
     
     
     
@@ -713,15 +886,6 @@ define this method on your own classes without having to call the superclass ins
   
 
   
-  <dt class="tag-see">See:</dt>
-  <dd class="tag-see">
-    <ul>
-      <li>{<a href="base_chains.html#end">base/chains#end</a>}</li>
-      
-      <li>{<a href="base_chains.html#destroy">base/chains#destroy</a>}</li>
-      </ul>
-  </dd>
-  
 
   
 </dl>
@@ -743,7 +907,7 @@ define this method on your own classes without having to call the superclass ins
         
             
 <dt>
-    <h4 class="name" id="end"><span class="type-signature"></span>end<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="subscribe"><span class="type-signature"></span>subscribe<span class="signature">(channel, topic, callback)</span><span class="type-signature"> &rarr; {object}</span></h4>
     
     
 </dt>
@@ -751,9 +915,7 @@ define this method on your own classes without having to call the superclass ins
     
     
     <div class="description">
-        Call this to close your object and dispose of all maintained resources. You can define this method on your
-own classes without having to call the superclass instance, however it is reccomended that you put
-all disposal code in `destroy()`. You must be disciplined about calling this on your instances.
+        Subscribe to an event
     </div>
     
 
@@ -761,6 +923,102 @@ all disposal code in `destroy()`. You must be disciplined about calling this on 
     
     
     
+    
+        <h5>Parameters:</h5>
+        
+<div class="params-table-container">
+  <table class="params table table-striped">
+      <thead>
+    <tr>
+      
+      <th>Name</th>
+      
+  
+      <th>Type</th>
+  
+      
+  
+      
+  
+      <th class="last">Description</th>
+    </tr>
+    </thead>
+  
+    <tbody>
+    
+  
+          <tr>
+              
+                  <td class="name"><code>channel</code></td>
+              
+  
+              <td class="type">
+              
+                  
+<span class="param-type">string</span>
+
+
+              
+              </td>
+  
+              
+  
+              
+  
+              <td class="description last">The channel to subscribe to</td>
+          </tr>
+  
+    
+  
+          <tr>
+              
+                  <td class="name"><code>topic</code></td>
+              
+  
+              <td class="type">
+              
+                  
+<span class="param-type">string</span>
+
+
+              
+              </td>
+  
+              
+  
+              
+  
+              <td class="description last">The topic to subscribe to</td>
+          </tr>
+  
+    
+  
+          <tr>
+              
+                  <td class="name"><code>callback</code></td>
+              
+  
+              <td class="type">
+              
+                  
+<span class="param-type">callback</span>
+
+
+              
+              </td>
+  
+              
+  
+              
+  
+              <td class="description last">What to do when you get the event</td>
+          </tr>
+  
+    
+    </tbody>
+  </table>
+</div>
+
     
     
     
@@ -790,15 +1048,6 @@ all disposal code in `destroy()`. You must be disciplined about calling this on 
   
 
   
-  <dt class="tag-see">See:</dt>
-  <dd class="tag-see">
-    <ul>
-      <li>{<a href="base_chains.html#end">base/chains#end</a>}</li>
-      
-      <li>{<a href="base_chains.html#destroy">base/chains#destroy</a>}</li>
-      </ul>
-  </dd>
-  
 
   
 </dl>
@@ -813,6 +1062,29 @@ all disposal code in `destroy()`. You must be disciplined about calling this on 
     
     
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The subscription definition
+</div>
+
+
+
+<dl>
+  <dt>
+    Type
+  </dt>
+  <dd>
+    
+<span class="param-type">object</span>
+
+
+  </dd>
+</dl>
+
+
+        
     
     
 </dd>
