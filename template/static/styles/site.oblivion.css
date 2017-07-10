@@ -1,4 +1,4 @@
-@import url('//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700');
+@import url('https://fonts.googleapis.com/css?family=Arimo');
 
 /* Dark gray: #2d3237 */
 /* Blue: #08c */
@@ -211,11 +211,11 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: "open-sans-1","open-sans-2","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+  font-family: "Arimo","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
   font-size: 16px;
   line-height: 20px;
   color: #444;
-  background: #f0f0f0 url(../img/old-wall.png) repeat 0 0;
+  background: #f0f0f0;
 }
 a {
   color: #08c;
@@ -3537,6 +3537,7 @@ input[type="submit"].btn.btn-mini {
   background: #ddd;
   background: rgba(255,255,255,.4);
   color: #444;
+  line-height: 1.4;
   -webkit-transition: all .2s ease-out;
   -moz-transition: all .2s ease-out;
   -ms-transition: all .2s ease-out;
@@ -3770,6 +3771,7 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar .brand:hover,
 .navbar .brand:focus {
+  background: #000 !important;
   text-decoration: none;
 }
 .navbar-text {
@@ -5925,17 +5927,41 @@ a.thumbnail:hover {
   color: #ffffff;
   cursor: default;
 }
-.toc-h1 {
-
+:root:root:root #toc a {
+  position: relative;
 }
-.toc-h2 {
-  margin-left: 10px;
+:root:root:root #toc a:after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  border-left: 1px dotted #c1c1c1;
 }
-.toc-h3 {
-  margin-left: 20px;
+:root:root:root .toc-h1 a {
+  padding-left: 10px;
 }
-.toc-h4 {
-  margin-left: 30px;
+:root:root:root .toc-h1 a:after {
+  left: 0px;
+  border-left: none !important;
+}
+:root:root:root .toc-h2 a {
+  padding-left: 20px;
+}
+:root:root:root .toc-h2 a:after {
+  left: 10px;
+}
+:root:root:root .toc-h3 a {
+  padding-left: 30px;
+}
+:root:root:root .toc-h3 a:after {
+  left: 20px;
+}
+:root:root:root .toc-h4 a {
+  padding-left: 40px;
+}
+:root:root:root .toc-h4 a:after {
+  left: 30px;
 }
 .copyright {
   font-size: 90%;
@@ -5967,6 +5993,9 @@ footer {
 }
 footer a {
   color: #aaa;
+}
+footer a:hover {
+  color: #949494;
 }
 code {
   background-color: none;
@@ -6032,7 +6061,7 @@ article h4.name {
   font-size: 34px;
   font-weight: bold;
   margin: 0 0 25px 0;
-  line-height: 1.2;
+  line-height: 1.4;
   border-bottom: 1px solid #ccc;
   padding: 0 0 10px 0;
   word-break: break-word;
@@ -6046,7 +6075,7 @@ article .name .type-signature {
 article .description {
   margin: 0;
   font-size: 16px;
-  line-height: 1.4;
+  line-height: 1.6;
 }
 article dd h5 {
   margin-top: 20px;
@@ -6070,4 +6099,10 @@ article dd h5 {
 }
 .params-table-container {
   overflow: scroll;
+}
+.class-description {
+  line-height: 1.6;
+}
+.tag-see li {
+  margin-bottom: 5px;
 }
