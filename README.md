@@ -14,48 +14,9 @@ Available via [npm](https://www.npmjs.org/)
 npm install jsdoc-oblivion
 ```
 
-Available via [bower](http://bower.io/)
-
-```bash
-bower install jsdoc-oblivion
-```
-
 # Usage
 
-[Grunt](http://gruntjs.com/) dependencies:
-
-```bash
-npm install jsdoc --save-dev
-npm install grunt-jsdoc --save-dev
-```
-
-`gruntfile.js`:
-
-```javascript
-module.exports = function (grunt) {
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    jsdoc : {
-      dist : {
-        src: [
-          './**/*.js',
-          'README.md'
-        ],
-        jsdoc: './node_modules/.bin/jsdoc',
-        options: {
-          destination: 'docs',
-          configure: './config/conf.json',
-          template: './node_modules/jsdoc-oblivion/template'
-        }
-      }
-    }
-  });
-  grunt.registerTask('default', ['grunt-jsdoc']);
-  grunt.loadNpmTasks('grunt-jsdoc');
-};
-```
-
-`config/conf.json`:
+JSDoc config file `jsdoc.json`:
 
 ```json
 {
@@ -83,6 +44,44 @@ module.exports = function (grunt) {
     "inverseNav"      : true
   }
 }
+```
+
+**Using CLI:**
+
+```
+jsdoc src/ -r -c jsdoc.json -d docs/ -t node_modules/jsdoc-oblivion/template
+```
+
+**Using [Grunt](http://gruntjs.com/):**
+
+```bash
+npm install grunt-jsdoc --save-dev
+```
+
+`gruntfile.js`:
+
+```javascript
+module.exports = function (grunt) {
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    jsdoc : {
+      dist : {
+        src: [
+          './**/*.js',
+          'README.md'
+        ],
+        jsdoc: './node_modules/.bin/jsdoc',
+        options: {
+          destination: 'docs',
+          configure: './jsdocjson',
+          template: './node_modules/jsdoc-oblivion/template'
+        }
+      }
+    }
+  });
+  grunt.registerTask('default', ['grunt-jsdoc']);
+  grunt.loadNpmTasks('grunt-jsdoc');
+};
 ```
 
 Generate:
