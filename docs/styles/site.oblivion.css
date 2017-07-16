@@ -775,7 +775,6 @@ blockquote {
   border-left: 5px solid #eeeeee;
 }
 blockquote p {
-  margin-bottom: 0;
   font-size: 17.5px;
   font-weight: 300;
   line-height: 1.25;
@@ -3538,11 +3537,6 @@ input[type="submit"].btn.btn-mini {
   background: rgba(255,255,255,.4);
   color: #444;
   line-height: 1.4;
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-  -ms-transition: all .2s ease-out;
-  -o-transition: all .2s ease-out;
-  transition: all .2s ease-out;
 }
 .nav-pills.nav-stacked > li:last-child > a {
 
